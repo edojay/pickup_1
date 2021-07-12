@@ -16,21 +16,8 @@ class _home_pageState extends State<home_page> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => book_return_1()),
-                  );
-                },
-                child: const Text('Boka retur'),
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.black,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 63, vertical: 10),
-                    textStyle: const TextStyle(
-                        fontSize: 15, fontWeight: FontWeight.bold)),
-              ),
+              ReusableButton(Text('Boka retur'),
+                  MaterialPageRoute(builder: (context) => book_return_1())),
               const SizedBox(height: 25),
               ElevatedButton(
                 onPressed: () {},
@@ -57,6 +44,31 @@ class _home_pageState extends State<home_page> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class ReusableButton extends StatelessWidget {
+  ReusableButton(@required this.ButtonText, this.nextPage);
+
+  Text ButtonText;
+  MaterialPageRoute nextPage;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          nextPage,
+        );
+      },
+      child: ButtonText,
+      style: ElevatedButton.styleFrom(
+          primary: Colors.black,
+          padding: const EdgeInsets.symmetric(horizontal: 63, vertical: 10),
+          textStyle:
+              const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
     );
   }
 }
