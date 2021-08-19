@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pickup/book_return_2.dart';
+import 'caliculation.dart';
+
+var calc = new Caliculation();
 
 class book_return_1 extends StatefulWidget {
   @override
@@ -8,6 +11,9 @@ class book_return_1 extends StatefulWidget {
 }
 
 class _book_return_1State extends State<book_return_1> {
+  var TextFormFieldInput = "Antal butiker";
+  TextEditingController _nameController = TextEditingController(); //1
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,12 +30,25 @@ class _book_return_1State extends State<book_return_1> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       TextFormField(
-                        decoration: const InputDecoration(
-                            labelText: 'Antal unika butiker'),
+                        controller: _nameController, //1
+                        decoration: InputDecoration(
+                          labelText: TextFormFieldInput,
+                          hintText: 'Minst en butik',
+                        ),
+                        keyboardType: TextInputType.number,
+                        maxLength: 2,
                       ),
                       SizedBox(height: 20),
                       ElevatedButton(
                         onPressed: () {
+                          calc.setNumberOfStores(_nameController.text); //1
+                          setState(
+                            () {
+                              if (_nameController.text.length < 1)
+                                print(
+                                    'HEJ'); //TODO: Must do so "Nästa" is disabled if 0, nothing or special signs are entered.
+                            },
+                          );
                           Navigator.push(
                             context,
                             MaterialPageRoute(

@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'caliculation.dart';
+
+var calc = new Caliculation();
 
 class payment_page extends StatefulWidget {
   @override
@@ -35,7 +38,7 @@ class _payment_pageState extends State<payment_page> {
                 ),
               ),
             ),
-            Text('Total kostnad: ')
+            Text('hej') //TODO: ADD THIS
           ],
         ),
       ),

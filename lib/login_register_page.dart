@@ -17,12 +17,12 @@ class MyApp extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const <Widget>[
-                    TextField(
+                  children: <Widget>[
+                    TextFormField(
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Epost adress',
-                      ),
+                          border: OutlineInputBorder(),
+                          labelText: 'Epost adress'),
+                      keyboardType: TextInputType.emailAddress,
                     ),
                     SizedBox(height: 20),
                     TextField(
@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
                         border: OutlineInputBorder(),
                         labelText: 'Lösenord',
                       ),
+                      obscureText: true,
                     ),
                   ],
                 ),
