@@ -16,7 +16,7 @@ class Caliculation {
     this.totalWeight = num;
   }
 
-  void caliculatePrice() {
+  int caliculatePrice(numberOfStores, numberOfGoods, totalWeight) {
     /*if (numberOfStores < 3) price = 10 + price;
     else if (numberOfStores > 3 && numberOfStores < 10)
       price = 25 + price;
@@ -25,5 +25,6 @@ class Caliculation {
     if (numberOfGoods > 0) price = 10 + price;
 
     if (totalWeight > 0) price = 10 + price;*/
+    return price;
   }
 }

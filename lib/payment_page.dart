@@ -38,7 +38,7 @@ class _payment_pageState extends State<payment_page> {
                 ),
               ),
             ),
-            Text('hej') //TODO: ADD THIS
+            Text('Total: ') //TODO: Show the caliculation here. "Total: "
           ],
         ),
       ),
