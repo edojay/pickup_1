@@ -9,7 +9,7 @@ class home_page extends StatefulWidget {
   _home_pageState createState() => _home_pageState();
 }
 
-void onSelected(BuildContext context, int item) {
+/*void onSelected(BuildContext context, int item) { //TODO:1 Addin three dots in upper corner.
   switch (item) {
     case 0:
       Navigator.of(context)
@@ -29,24 +29,24 @@ void onSelected(BuildContext context, int item) {
           .push(MaterialPageRoute(builder: (context) => MyApp()));
       break;
   }
-}
+}*/
 
 class _home_pageState extends State<home_page> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.deepPurple.shade50,
         appBar: AppBar(
-          backgroundColor: Colors.black,
-          leading: new Container(), //EDJE: Remove back routing.
-          title: Center(child: Text('Pickup')),
-          /*leading: Icon(Icons.account_circle_rounded),
-           */
-          /*leading: IconButton(
-            icon: new Icon(Icons.bookmark),
-            onPressed: () {/* Your code */},
-          ),*/
-          actions: [
+          backgroundColor: Colors.white,
+          title: Center(
+            child: Text(
+              'Pickup',
+              style: TextStyle(color: Colors.black),
+            ),
+          ),
+          automaticallyImplyLeading: false, //Remove backrouting.
+          /*actions: [ //TODO:1 Addin three dots in upper corner.
             PopupMenuButton<int>(
               onSelected: (item) => onSelected(context, item),
               itemBuilder: (context) => [
@@ -71,12 +71,13 @@ class _home_pageState extends State<home_page> {
                 PopupMenuItem<int>(value: 3, child: Text('Logga ut'))
               ],
             )
-          ],
+          ],*/
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              const SizedBox(height: 300),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -90,7 +91,7 @@ class _home_pageState extends State<home_page> {
                     shadowColor: Colors.red,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
-                    primary: Colors.purple,
+                    primary: Colors.purple.shade300,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 100, vertical: 30),
                     textStyle: const TextStyle(
@@ -98,6 +99,25 @@ class _home_pageState extends State<home_page> {
               ),
             ],
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle_rounded),
+              label: 'Profil',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.work_outlined),
+              label: 'Mina ordrar',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.contact_mail_outlined),
+              label: 'Kontakt',
+            ),
+          ],
+          /*currentIndex: _selectedIndex,
+          selectedItemColor: Colors.amber[800],
+          onTap: _onItemTapped,*/
         ),
       ),
     );

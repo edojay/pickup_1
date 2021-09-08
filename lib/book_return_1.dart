@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pickup/book_return_2.dart';
+import 'book_return_4_pick_time.dart';
 import 'caliculation.dart';
 
 var calc = new Caliculation();
@@ -52,7 +53,8 @@ class _book_return_1State extends State<book_return_1> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => book_return_2()),
+                                //builder: (context) => book_return_2()),
+                                builder: (context) => book_return_pick_time()),
                           );
                         },
                         child: const Text('Nästa!'),
